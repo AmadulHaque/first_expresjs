@@ -1,4 +1,10 @@
+let express = require('express');
+app=express();
 
-let a = 10;
-let c = 10;
-console.log(a*c);
+
+app.get("/",function (req,res) {
+    res.send("hello Express js ");
+})
+app.listen(7070,function () {
+    console.log("server run success");
+})
