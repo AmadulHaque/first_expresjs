@@ -1,66 +1,38 @@
 let express = require('express');
 app=express();
-//
-// app.get("/one",function (req,res) {
-//     res.send("this is simple string response  get");
-// })
-//
-// app.post("/two",function (req,res) {
-//     res.send("this is simple string response post");
-// })
-//
-// app.post("/three",function (req,res) {
-//     res.status(401).end("status test code");
-// })
-//
-// app.post("/four",function (req,res) {
-//     let  MyJSON =[
-//         {
-//             name:'karim',
-//             age:'25',
-//             roll:'21',
-//         },
-//         {
-//             name:'karim2',
-//             age:'25',
-//             roll:'21',
-//         },
-//         {
-//             name:'karim3',
-//             age:'25',
-//             roll:'21',
-//         },
-//         {
-//             name:'karim4',
-//             age:'25',
-//             roll:'21',
-//         },
-//         {
-//             name:'karim5',
-//             age:'25',
-//             roll:'21',
-//         },
-//         {
-//             name:'karim6',
-//             age:'25',
-//             roll:'21',
-//         }
-//     ]
-//
-//     res.json(MyJSON);
-// })
-//
-// app.get("/five",function (req,res) {
-//     res.download('./200.gif');
-// })
+
+
+app.get("/bangladesh",function (req,res) {
+    res.redirect('http://localhost:8000/nepal');
+})
+
+app.get("/nepal",function (req,res) {
+    res.send('this nepal');
+})
+
+app.get("/six",function (req,res) {
+    res.append('name' ,'karim');
+    res.append('city' ,'dhaka');
+    res.append('age' ,'22');
+    res.status(201).end('this is body emo text');
+})
+
+
+app.get("/seven",function (req,res) {
+    res.cookie('name' ,'halim');
+    res.cookie('city' ,'dhaka');
+    res.cookie('age' ,'14');
+    res.end('this is body emo text');
+})
+app.get("/eight",function (req,res) {
+    res.clearCookie('name');
+    // res.clearCookie('city');
+    res.clearCookie('age');
+    res.end('this is body emo text');
+})
 
 
 
-
-
-
-
-
-app.listen(8000,function () {
+app.listen(7000,function () {
     console.log("server run success");
 })
